@@ -7,12 +7,13 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost:5500/social-network", 
+mongoose.connect("mongodb://127.0.0.1:27017/", 
    {
       useNewUrlParser: true,
       useUnifiedTopology: true
    })
    .then(console.log("Connected MongoDB..."))
+   .catch((error) => { console.log(error) } )
 
 mongoose.set("debug", true);
 
